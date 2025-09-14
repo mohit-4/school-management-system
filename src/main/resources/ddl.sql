@@ -1,0 +1,25 @@
+-- USERS TABLE
+CREATE TABLE users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_name VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('STUDENT','TEACHER','ADMIN') NOT NULL
+);
+
+-- TEACHERS TABLE
+CREATE TABLE teachers (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    subject VARCHAR(255)
+);
+
+-- STUDENTS TABLE
+CREATE TABLE students (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    age VARCHAR(50),
+    grade VARCHAR(50),
+    teacher_id BIGINT,
+    CONSTRAINT fk_student_teacher FOREIGN KEY (teacher_id) REFERENCES teachers(id)
+);
