@@ -62,7 +62,6 @@ Teachers
 AuditLogs / Events (Kafka)
 └── student_id/teacher_id, event_type (CREATED/UPDATED/DELETED), timestamp
 
-
 ---
 
 ## Security Design
@@ -96,13 +95,6 @@ AuditLogs / Events (Kafka)
 
 ---
 
-## Testing Strategy
-
-* **Unit Tests:** Services, repositories, and controllers
-* **Mock Tests:** Kafka, Redis, and security layers
-
----
-
 ## Logging Strategy
 
 * **Audit Logs:** Every API call logged with user, endpoint, status
@@ -121,8 +113,7 @@ STUDENT → Can view/update own details
 ## Setup Instructions
 
 1. **Clone Repository**
-```bash
-git clone https://github.com/<your-username>/school-management-system.git
+git clone https://github.com/mohit-4/school-management-system.git
 cd school-management-system
 
 --- 
@@ -139,10 +130,15 @@ spring.jpa.hibernate.ddl-auto=update
 
 ## Run Dependencies
 Redis: redis-server
-Kafka:
 
+---
+
+## Kafka:
 zookeeper-server-start.sh config/zookeeper.properties
 kafka-server-start.sh config/server.properties
+
+## Run the Application
+mvn spring-boot:run
 
 
 
